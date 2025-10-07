@@ -242,12 +242,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f771c925dd35b834593047ea9d6b73c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  colors:
+  - r: 1
+    g: 0
+    b: 0
+    a: 1
+  - r: 0
+    g: 1
+    b: 0
+    a: 1
+  - r: 0
+    g: 0
+    b: 1
+    a: 1
+  currentColorIndex: 0
   bulletPrefab: {fileID: 7125913628099092196, guid: 5cc6375677291ef49a874bfa4a249395, type: 3}
   bulletSpawnPoint: {fileID: 979305776}
   bulletSpeed: 5
   rotationSpeed: 3
   detectionRadius: 4.25
   checkInterval: 2.5
+  shootInterval: 1
+  currentTarget: {fileID: 0}
+  enemiesDestroyed: 0
   enemiesDestroyedText: {fileID: 0}
 --- !u!212 &979305775
 SpriteRenderer:
@@ -301,7 +319,7 @@ SpriteRenderer:
   m_Size: {x: 0.9, y: 1.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &979305776
@@ -425,7 +443,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1032354142
@@ -512,7 +530,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1035426231
@@ -567,6 +585,21 @@ MonoBehaviour:
   minimumSpawnInterval: 0.5
   spawnRadius: 10
   triangleSpeed: 1
+  colors:
+  - r: 1
+    g: 0
+    b: 0
+    a: 1
+  - r: 0
+    g: 1
+    b: 0
+    a: 1
+  - r: 0
+    g: 0
+    b: 1
+    a: 1
+  spawnTimer: 0
+  currentSpawnInterval: 0
 --- !u!4 &1466380199
 Transform:
   m_ObjectHideFlags: 0
@@ -613,6 +646,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
+  m_EventSystem: {fileID: 0}
+  m_InputOverride: {fileID: 0}
+  m_DefaultInput: {fileID: 0}
+  m_PrevActionTime: 0
+  m_LastMoveVector: {x: 0, y: 0}
+  m_ConsecutiveMoveCount: 0
+  m_LastMousePosition: {x: 0, y: 0}
+  m_MousePosition: {x: 0, y: 0}
+  m_CurrentFocusedGameObject: {fileID: 0}
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -632,9 +674,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SystemInputModules: []
+  m_CurrentInputModule: {fileID: 0}
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  m_CurrentSelected: {fileID: 0}
+  m_HasFocus: 1
+  m_SelectionGuard: 0
+  m_Started: 0
+  m_IsTrackingUIToolkitPanels: 0
 --- !u!4 &1557589304
 Transform:
   m_ObjectHideFlags: 0
@@ -734,7 +783,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1660057539 &9223372036854775807
