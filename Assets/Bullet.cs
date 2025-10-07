@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private PlayerController tower;
+
+    public void SetTower(PlayerController towerRef)
+    {
+        tower = towerRef;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            // Check if the bullet color matches the enemy color
-            if (collision.GetComponent<SpriteRenderer>().color == GetComponent<SpriteRenderer>().color)
-            {
-                Destroy(collision.gameObject); // Destroy the enemy if the colors match
-                FindObjectOfType<PlayerController>().IncrementEnemiesDestroyed(); // Increment enemy count
-            }
+            // Simulate enemy death
+            Destroy(collision.gameObject);
 
-            Destroy(gameObject); // Destroy the bullet on impact
+            // Tell tower enemy was destroyed
+            if (tower != null)
+                tower.IncrementEnemiesDestroyed();
+
+            // Destroy bullet
+            Destroy(gameObject);
         }
     }
 }
